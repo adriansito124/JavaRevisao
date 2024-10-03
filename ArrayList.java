@@ -1,30 +1,36 @@
-public class ArrayList<T> implements Collection<T>{
+public class ArrayList<T> implements Collection<T> {
     private T[] data;
+    private int size = 0;
     public ArrayList() {
         data = create(10);
     }
-
-    T[] create(int size) {
+    
+    private T[] create(int size) {
         Object[] array = new Object[size];
         return (T[])array;
     }
 
     @Override
     public T get(int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        return data[index];
     }
 
     @Override
     public void add(T value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        if (size == data.length)
+        {
+            T[] newArray = create(2 * size);
+            for (int i = 0; i < data.length; i++)
+                newArray[i] = data[i];
+            data = newArray;
+        }
+
+        data[size] = value;
+        size++;
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        return size;
     }
-    
 }

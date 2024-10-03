@@ -1,8 +1,15 @@
-public class Main {
-    public static void main(String[] args) 
+public class Main
+{
+    public static void main(String[] args)
     {
-        Pessoa pessoa = new Pessoa("Claudio");
+        Collection<Pessoa> pessoas = new ArrayList<>();
+
+        Pessoa pessoa = new Pessoa(
+            "Robertin Bosque", Time.now()
+        );
+        pessoas.add(pessoa);
+
         System.out.println(pessoa.getNome());
-        
+
     }
 }
